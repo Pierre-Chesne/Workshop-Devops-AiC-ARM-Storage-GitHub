@@ -3,6 +3,8 @@ on:
   push:
     branches:
     - master
+    path:
+    - ARM/*
 
 jobs:
   build-and-deploy:
@@ -20,4 +22,3 @@ jobs:
         azcliversion: 2.0.72
         inlineScript: |
           az group create --name RG-Workshop-07 --location eastus2
-          
