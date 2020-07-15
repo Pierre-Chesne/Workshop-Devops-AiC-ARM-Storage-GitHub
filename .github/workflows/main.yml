@@ -1,6 +1,6 @@
 name: Workflow Exemple Devops
 on:
- push:
+  push:
     branches:
     - master
 
@@ -19,4 +19,5 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az group create --name RG-Workshop-07 --location eastus
+          az group create --name RG-Workshop-07 --location eastus2
+          
