@@ -21,4 +21,4 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az group create --name RG-Workshop-07 --location eastus2
+          az group create --name RG-Workshop-Devops-AiC-ARM-Storage-GitHub --location eastus2
