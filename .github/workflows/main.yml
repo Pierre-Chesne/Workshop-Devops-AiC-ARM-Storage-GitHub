@@ -7,7 +7,7 @@ on:
     - ARM/*
 
 jobs:
-  deploy:
+  build-and-deploy:
     name: Deploy to Azure
     runs-on: ubuntu-latest
     steps:    
@@ -22,3 +22,21 @@ jobs:
         azcliversion: 2.0.72
         inlineScript: |
           az group create --name RG-Workshop-Devops-AiC-ARM-Storage-GitHub --location eastus2
+
+    - name: Git - Get Sources
+      uses: actions/checkout@master
+
+    - name: Azure - Login ARM
+      uses: Azure/github-actions/login@master
+      env:
+        AZURE_SUBSCRIPTION: Peter_Azure
+        AZURE_SERVICE_APP_ID: ${{ secrets.AZURE_SERVICE_APP_ID }}
+        AZURE_SERVICE_PASSWORD: ${{ secrets.AZURE_SERVICE_PASSWORD }}
+        AZURE_SERVICE_TENANT: ${{ secrets.AZURE_SERVICE_TENANT }}
+
+    - name: Azure - Deploy ARM Template
+      uses: Azure/github-actions/arm@master
+      env:
+        AZURE_RESOURCE_GROUP: RG-Workshop-Devops-AiC-ARM-Storage-GitHub
+        AZURE_TEMPLATE_LOCATION: ./ARM/azuredeploy.json
+        AZURE_TEMPLATE_PARAM_LOCATION: ./ARM/azuredeploy.parameters.json
