@@ -7,7 +7,7 @@ on:
     - ARM/*
 
 jobs:
-  build-and-deploy:
+  deploy:
     name: Deploy to Azure
     runs-on: ubuntu-latest
     steps:    
