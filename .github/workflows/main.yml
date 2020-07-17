@@ -19,7 +19,7 @@ jobs:
     - name: Azure CLI script Creation d'un "RG"
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.9.0
         inlineScript: |
           az group create --name RG-Workshop-Devops-AiC-ARM-Storage-GitHub --location eastus2
 
