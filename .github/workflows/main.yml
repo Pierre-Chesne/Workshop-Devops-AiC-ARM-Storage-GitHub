@@ -1,4 +1,4 @@
-name: Workflow Exemple Devops
+name: Workflow deploiement d'un compte de stockage
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Deploy to Azure
+    name: Deploiement dans Azure
     runs-on: ubuntu-latest
     steps:    
     - name: Azure Login Az Cli
@@ -16,7 +16,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
-    - name: Azure CLI script
+    - name: Azure CLI script Creation d'un "RG"
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
